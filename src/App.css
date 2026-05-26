@@ -96,7 +96,7 @@ body {
 
   position: relative;
 }
-  .operator-mode .session-label::before,
+.operator-mode .session-label::before,
 .operator-mode .session-label::after {
   content: '';
 
