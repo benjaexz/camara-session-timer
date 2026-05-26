@@ -1,0 +1,1 @@
+export const INITIAL_TIMER_SECONDS = 5 * 60
