@@ -1,73 +1,189 @@
-# React + TypeScript + Vite
+# Câmara Session Timer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sistema de cronometragem legislativa para sessões plenárias da Câmara Municipal de Barcelos.
 
-Currently, two official plugins are available:
+Projeto desenvolvido para permitir operação centralizada do tempo da sessão por um operador enquanto uma tela externa exibe o cronômetro em tempo real em modo somente leitura.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Visão Geral
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+O sistema foi pensado para uso institucional.
 
-## Expanding the ESLint configuration
+Fluxo:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```txt
+Operador
+↓
+Controla cronômetro
+↓
+Sincronização em tempo real
+↓
+Tela pública / TV
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Separação clara entre:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```txt
+/operador → controle
+/display → exibição
 ```
+
+---
+
+# Tecnologias
+
+- React
+- TypeScript
+- Vite
+- Firebase Realtime Database
+- React Router DOM
+- CSS
+
+---
+
+# Funcionalidades
+
+## Operador
+
+- Iniciar cronômetro
+- Pausar cronômetro
+- Redefinir tempo
+- Controle centralizado
+
+## Display
+
+- Exibição em tela cheia
+- Atualização automática
+- Interface limpa
+- Alta legibilidade para plenário
+
+## Sistema
+
+- Sincronização em tempo real
+- Separação entre controle e visualização
+- Estrutura preparada para expansão
+
+---
+
+# Rotas
+
+### Operador
+
+```txt
+/operador
+```
+
+Tela usada pela mesa ou responsável pela sessão.
+
+### Display
+
+```txt
+/display
+```
+
+Tela exibida em TV ou monitor institucional.
+
+---
+
+# Executar localmente
+
+Instalar dependências:
+
+```bash
+npm install
+```
+
+Executar:
+
+```bash
+npm run dev
+```
+
+Abrir:
+
+```txt
+http://localhost:5173/operador
+```
+
+ou
+
+```txt
+http://localhost:5173/display
+```
+
+---
+
+# Estrutura do Projeto
+
+```txt
+src
+├── assets
+├── components
+├── constants
+├── pages
+├── utils
+├── App.tsx
+├── main.tsx
+└── index.css
+```
+
+---
+
+# Arquitetura
+
+```txt
+Operador
+│
+├── Controle do tempo
+│
+▼
+
+Firebase Realtime Database
+
+▼
+
+Display
+(TV / Painel)
+```
+
+---
+
+# Status do Projeto
+
+MVP em desenvolvimento.
+
+Concluído:
+
+- [x] Estrutura React + TypeScript
+- [x] Interface institucional
+- [x] Timer regressivo
+- [x] Componentização
+- [x] Separação operador / display
+- [x] Estrutura para sincronização
+
+Próximos passos:
+
+- [ ] Presets de tempo
+- [ ] Fullscreen automático
+- [ ] Autenticação do operador
+- [ ] Deploy
+- [ ] Monitoramento de conexão
+
+---
+
+# Objetivos Técnicos
+
+- Baixa complexidade operacional
+- Alta legibilidade
+- Tempo sincronizado
+- Arquitetura simples e escalável
+- Uso em ambiente legislativo
+
+---
+
+# Autor
+
+Desenvolvido por Benjamin.
+
+Projeto acadêmico e institucional para estudo de sistemas em tempo real aplicados ao ambiente legislativo.
