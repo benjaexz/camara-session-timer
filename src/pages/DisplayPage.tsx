@@ -4,6 +4,7 @@ import { Timer } from '../components/Timer'
 import { formatTime } from '../utils/formatTime'
 import { INITIAL_TIMER_SECONDS } from '../constants/timer'
 import { listenTimerState } from '../services/timerService'
+import { useRef } from 'react'
 
 export function DisplayPage() {
   const [seconds, setSeconds] = useState(INITIAL_TIMER_SECONDS)

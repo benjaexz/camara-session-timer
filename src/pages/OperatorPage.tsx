@@ -6,6 +6,7 @@ import { INITIAL_TIMER_SECONDS } from '../constants/timer'
 import { Status } from '../components/Status'
 import { Header } from '../components/Header'
 import { saveTimerState } from '../services/timerService'
+import { SessionPresets } from '../components/SessionPresets'
 
 export function OperatorPage() {
   const [seconds, setSeconds] = useState(INITIAL_TIMER_SECONDS)
@@ -55,7 +56,12 @@ useEffect(() => {
         />
 
         <Status isRunning={isRunning} />
-
+        <SessionPresets
+          onSelectPreset={(presetSeconds) => {
+          setIsRunning(false)
+        setSeconds(presetSeconds)
+     }}
+/>
         <Controls
           isRunning={isRunning}
           onStart={() => setIsRunning(true)}

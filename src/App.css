@@ -318,3 +318,28 @@ body {
   font-size: clamp(150px, 17vw, 280px);
   line-height: 0.9;
 }
+
+.session-presets {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 24px 0 8px;
+}
+
+.preset-button {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(15, 23, 42, 0.75);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.preset-button:hover {
+  background: #ffffff;
+  color: #0f172a;
+}
