@@ -1,189 +1,148 @@
-# Câmara Session Timer
+# Sistema de Cronometragem Legislativa
 
-Sistema de cronometragem legislativa para sessões plenárias da Câmara Municipal de Barcelos.
+Sistema web para controle e exibição de cronômetro em sessões plenárias.
 
-Projeto desenvolvido para permitir operação centralizada do tempo da sessão por um operador enquanto uma tela externa exibe o cronômetro em tempo real em modo somente leitura.
+Desenvolvido para permitir que um operador controle remotamente o tempo da sessão enquanto um painel em TV exibe o cronômetro em tempo real.
 
 ---
 
-## Visão Geral
+## Objetivo
 
-O sistema foi pensado para uso institucional.
+Substituir controle manual de tempo por um sistema:
 
-Fluxo:
+- simples
+- sincronizado em tempo real
+- legível em ambientes institucionais
+- acessível via navegador
 
-```txt
+Arquitetura:
+
 Operador
 ↓
-Controla cronômetro
+Firebase Realtime Database
 ↓
-Sincronização em tempo real
-↓
-Tela pública / TV
-```
-
-Separação clara entre:
-
-```txt
-/operador → controle
-/display → exibição
-```
+Display (TV)
 
 ---
 
-# Tecnologias
+## Demonstração
 
+Produção:
+
+https://camara-session-timer.vercel.app
+
+Rotas:
+
+- `/operador` → controle do cronômetro
+- `/display` → exibição institucional
+
+---
+
+## Funcionalidades
+
+### Operador
+- iniciar cronômetro
+- pausar cronômetro
+- redefinir tempo
+- selecionar presets
+- sincronização em tempo real
+
+### Display
+- atualização automática
+- modo somente leitura
+- fullscreen
+- visual institucional
+
+### Sistema
+- sincronização instantânea
+- separação operador/display
+- deploy cloud
+
+---
+
+## Tecnologias
+
+Frontend:
 - React
 - TypeScript
 - Vite
+
+Backend (BaaS):
 - Firebase Realtime Database
-- React Router DOM
-- CSS
+- Firebase Authentication
+
+Deploy:
+- Vercel
+
+Versionamento:
+- Git
+- GitHub
 
 ---
 
-# Funcionalidades
-
-## Operador
-
-- Iniciar cronômetro
-- Pausar cronômetro
-- Redefinir tempo
-- Controle centralizado
-
-## Display
-
-- Exibição em tela cheia
-- Atualização automática
-- Interface limpa
-- Alta legibilidade para plenário
-
-## Sistema
-
-- Sincronização em tempo real
-- Separação entre controle e visualização
-- Estrutura preparada para expansão
-
----
-
-# Rotas
-
-### Operador
-
-```txt
-/operador
-```
-
-Tela usada pela mesa ou responsável pela sessão.
-
-### Display
-
-```txt
-/display
-```
-
-Tela exibida em TV ou monitor institucional.
-
----
-
-# Executar localmente
-
-Instalar dependências:
-
-```bash
-npm install
-```
-
-Executar:
-
-```bash
-npm run dev
-```
-
-Abrir:
-
-```txt
-http://localhost:5173/operador
-```
-
-ou
-
-```txt
-http://localhost:5173/display
-```
-
----
-
-# Estrutura do Projeto
+## Estrutura
 
 ```txt
 src
 ├── assets
 ├── components
+│   ├── Header
+│   ├── Timer
+│   ├── Controls
+│   └── Status
 ├── constants
-├── pages
 ├── utils
-├── App.tsx
-├── main.tsx
-└── index.css
+├── pages
+│   ├── Operator
+│   └── Display
+└── App
 ```
 
 ---
 
-# Arquitetura
+## Instalação
+
+```bash
+git clone https://github.com/benjaexz/camara-session-timer
+
+cd camara-session-timer
+
+npm install
+
+npm run dev
+```
+
+Aplicação:
 
 ```txt
-Operador
-│
-├── Controle do tempo
-│
-▼
-
-Firebase Realtime Database
-
-▼
-
-Display
-(TV / Painel)
+http://localhost:5173
 ```
 
 ---
 
-# Status do Projeto
+## Roadmap
 
-MVP em desenvolvimento.
+### V1
+- [x] cronômetro
+- [x] realtime
+- [x] display
+- [x] deploy
 
-Concluído:
+### V1.1
+- [ ] autenticação operador
+- [ ] tratamento desconexão
+- [ ] otimização assets
 
-- [x] Estrutura React + TypeScript
-- [x] Interface institucional
-- [x] Timer regressivo
-- [x] Componentização
-- [x] Separação operador / display
-- [x] Estrutura para sincronização
-
-Próximos passos:
-
-- [ ] Presets de tempo
-- [ ] Fullscreen automático
-- [ ] Autenticação do operador
-- [ ] Deploy
-- [ ] Monitoramento de conexão
+### V2
+- [ ] múltiplos cronômetros
+- [ ] pauta/orador
+- [ ] histórico
+- [ ] painel administrativo
 
 ---
 
-# Objetivos Técnicos
+## Autor
 
-- Baixa complexidade operacional
-- Alta legibilidade
-- Tempo sincronizado
-- Arquitetura simples e escalável
-- Uso em ambiente legislativo
+Benjamin Lima
 
----
-
-# Autor
-
-Desenvolvido por Benjamin.
-
-Projeto acadêmico e institucional para estudo de sistemas em tempo real aplicados ao ambiente legislativo.
+Projeto desenvolvido como solução real para ambiente legislativo.
