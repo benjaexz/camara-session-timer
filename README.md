@@ -26,11 +26,6 @@ Display (TV)
 ---
 
 ## Demonstração
-
-Produção:
-
-https://camara-session-timer.vercel.app
-
 Rotas:
 
 - `/operador` → controle do cronômetro
